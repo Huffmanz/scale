@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b54ellody5uhi"]
+
+[ext_resource type="Texture2D" uid="uid://dtns2c5vitj67" path="res://assets/Apocalypse Character Pack/Player/Bullet.png" id="1_471iq"]
+[ext_resource type="PackedScene" uid="uid://cg2aakg1urfxl" path="res://components/BounceComponent.tscn" id="2_4lj2m"]
+[ext_resource type="Script" path="res://player/spent_shell.gd" id="2_81rwt"]
+
+[node name="SpentShell2" type="Node2D"]
+script = ExtResource("2_81rwt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_471iq")
+region_enabled = true
+region_rect = Rect2(46, 48, 5, 3)
+
+[node name="BounceComponent" parent="." node_paths=PackedStringArray("host_node") instance=ExtResource("2_4lj2m")]
+host_node = NodePath("../Sprite2D")

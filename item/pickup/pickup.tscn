@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://y0mx4yfdm7j7"]
+
+[ext_resource type="Script" path="res://item/pickup/pickup.gd" id="1_50gno"]
+[ext_resource type="Texture2D" uid="uid://7fc4x26xp5eg" path="res://assets/TheUltimateWeaponsPack/weapon_atlas.tres" id="2_g76lw"]
+[ext_resource type="PackedScene" uid="uid://cg2aakg1urfxl" path="res://components/BounceComponent.tscn" id="3_ahi0l"]
+[ext_resource type="Theme" uid="uid://b7mucilgoxfdw" path="res://theme.tres" id="4_13w6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iemkk"]
+size = Vector2(47, 30)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1l7y6"]
+light_mode = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oju2o"]
+radius = 17.0294
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jendm"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_maogm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_hvncd"]
+resource_name = "spawn"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5),
+"transitions": PackedFloat32Array(2.07053, 2.54912, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fcex"]
+_data = {
+"RESET": SubResource("Animation_maogm"),
+"spawn": SubResource("Animation_hvncd")
+}
+
+[node name="Pickup" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+continuous_cd = 2
+lock_rotation = true
+script = ExtResource("1_50gno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_iemkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_1l7y6")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_g76lw")
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_oju2o")
+
+[node name="BounceComponent" parent="." node_paths=PackedStringArray("host_node") instance=ExtResource("3_ahi0l")]
+host_node = NodePath("../Sprite2D")
+drop_height = 100
+start_at_top = false
+rotate = true
+
+[node name="NameQuantity" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_jendm")
+offset_left = -19.0
+offset_top = -30.0
+offset_right = 21.0
+offset_bottom = -7.0
+theme = ExtResource("4_13w6s")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 6
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
+libraries = {
+"": SubResource("AnimationLibrary_3fcex")
+}

@@ -1,0 +1,506 @@
+[gd_scene load_steps=21 format=3 uid="uid://c5321n3ekjkxh"]
+
+[ext_resource type="Script" path="res://levels/main_menu.gd" id="1_1b7si"]
+[ext_resource type="PackedScene" uid="uid://3c64dvk5axmi" path="res://UI/sound_button.tscn" id="2_07wi1"]
+[ext_resource type="Texture2D" uid="uid://dbfxyi0gcnl1t" path="res://assets/Free-TDS-Game-UI-Pixel-Art/Loading Screen/Background.png" id="2_jn33m"]
+[ext_resource type="Theme" uid="uid://b7mucilgoxfdw" path="res://theme.tres" id="3_mlerf"]
+[ext_resource type="Shader" path="res://shaders/offset.gdshader" id="5_a63xx"]
+[ext_resource type="AudioStream" uid="uid://cqrick06lgm8s" path="res://assets/audio/music/710327__davejf__violin.mp3" id="5_e0yjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi50s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4xw8"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(-100, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksr2d"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(-100, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytu7o"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(-100, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7ijv"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(-100, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mm7h1"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(-100, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdx4y"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(900, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kg7me"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(900, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vvoq"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(900, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfcip"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(900, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ith5s"]
+shader = ExtResource("5_a63xx")
+shader_parameter/percent = Vector2(900, 0)
+
+[sub_resource type="Animation" id="Animation_8aoeo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/symbiotic:material:shader_parameter/percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/consortium:material:shader_parameter/percent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/advanced:material:shader_parameter/percent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/life:material:shader_parameter/percent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/engineering:material:shader_parameter/percent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/S:material:shader_parameter/percent")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/C:material:shader_parameter/percent")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/A:material:shader_parameter/percent")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/L:material:shader_parameter/percent")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/E:material:shader_parameter/percent")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ord1d"]
+resource_name = "default"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/symbiotic:material:shader_parameter/percent")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(900, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/consortium:material:shader_parameter/percent")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(900, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/advanced:material:shader_parameter/percent")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(900, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/life:material:shader_parameter/percent")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(900, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/engineering:material:shader_parameter/percent")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(900, 0), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/S:material:shader_parameter/percent")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/C:material:shader_parameter/percent")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(-100, 0), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/A:material:shader_parameter/percent")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(-100, 0), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/L:material:shader_parameter/percent")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(-100, 0), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/E:material:shader_parameter/percent")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(-100, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xglt6"]
+_data = {
+"RESET": SubResource("Animation_8aoeo"),
+"default": SubResource("Animation_ord1d")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_1b7si")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mlerf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_jn33m")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gi50s")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_07wi1")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("3_mlerf")
+text = "Play
+"
+icon_alignment = 1
+
+[node name="HowToPlay" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_07wi1")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("3_mlerf")
+text = "How To Play"
+icon_alignment = 1
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_07wi1")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme = ExtResource("3_mlerf")
+text = "Quit"
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.347656, 0.296875, 0.160156, 1)
+theme_override_constants/outline_size = 1
+text = "S.C.A.L.E"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="S" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_m4xw8")
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "S"
+vertical_alignment = 1
+
+[node name="C" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_ksr2d")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "C
+"
+vertical_alignment = 1
+
+[node name="A" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_ytu7o")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "A"
+vertical_alignment = 1
+
+[node name="L" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_p7ijv")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "L"
+vertical_alignment = 1
+
+[node name="E" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_mm7h1")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "E
+"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="symbiotic" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_rdx4y")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "ymbiotic
+"
+vertical_alignment = 1
+
+[node name="consortium" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_kg7me")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "onsortium for
+"
+vertical_alignment = 1
+
+[node name="advanced" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_0vvoq")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "dvanced"
+vertical_alignment = 1
+
+[node name="life" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_wfcip")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "ife"
+vertical_alignment = 1
+
+[node name="engineering" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_ith5s")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 28
+text = "ngineering"
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_e0yjc")
+autoplay = true
+bus = &"music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_xglt6")
+}

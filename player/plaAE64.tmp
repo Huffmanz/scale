@@ -1,0 +1,171 @@
+[gd_scene load_steps=22 format=3 uid="uid://bks6pfphc23dx"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_23ulv"]
+[ext_resource type="Resource" uid="uid://bqv7ufqolls0i" path="res://test_inv.tres" id="2_l2mes"]
+[ext_resource type="PackedScene" uid="uid://d07j55uymbv67" path="res://components/health_component.tscn" id="3_16o1r"]
+[ext_resource type="Texture2D" uid="uid://k8oopap8hvqh" path="res://assets/environment/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="3_783fg"]
+[ext_resource type="Script" path="res://inventory/inventory_data_weapon.gd" id="3_is84x"]
+[ext_resource type="PackedScene" uid="uid://coatywfr1koxw" path="res://components/hurtbox.tscn" id="3_xgmlc"]
+[ext_resource type="Texture2D" uid="uid://fljmknx3hrgu" path="res://assets/NuclearLeak_CharacterAnim_1.2/character_20x20_yellow.png" id="4_ts6y1"]
+[ext_resource type="Texture2D" uid="uid://bc3s05scrcvds" path="res://assets/NuclearLeak_CharacterAnim_1.2/character_Shadow_15x4.png" id="5_jo4ln"]
+[ext_resource type="Script" path="res://player/camera.gd" id="7_4e4mi"]
+[ext_resource type="PackedScene" uid="uid://cq0pnvj31f43" path="res://item/weapons/weapon.tscn" id="7_ipuo7"]
+[ext_resource type="PackedScene" uid="uid://q716erjewb3i" path="res://components/velocity_component.tscn" id="9_cb3a1"]
+[ext_resource type="PackedScene" uid="uid://b6oig4hubcf6m" path="res://components/weight_component.tscn" id="10_d67op"]
+
+[sub_resource type="Resource" id="Resource_j54fh"]
+script = ExtResource("3_is84x")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7t54"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_52ja4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_dgvni"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_0c28o"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hm08"]
+_data = {
+"RESET": SubResource("Animation_52ja4"),
+"idle": SubResource("Animation_dgvni"),
+"walk": SubResource("Animation_0c28o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb5la"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ehy"]
+size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_w7ko0"]
+_data = [Vector2(0, 1), 0.0, -1.89737, 0, 0, Vector2(1, 0), -0.566746, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+script = ExtResource("1_23ulv")
+inventory_data = ExtResource("2_l2mes")
+weapon_inventory_data = SubResource("Resource_j54fh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x7t54")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_ts6y1")
+hframes = 6
+vframes = 6
+frame = 6
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+texture = ExtResource("5_jo4ln")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+speed_scale = 1.25
+libraries = {
+"": SubResource("AnimationLibrary_5hm08")
+}
+
+[node name="WeaponHolder" type="Node2D" parent="."]
+
+[node name="Weapon" parent="WeaponHolder" instance=ExtResource("7_ipuo7")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("7_4e4mi")
+
+[node name="Shadows" type="PointLight2D" parent="."]
+z_index = 1
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("3_783fg")
+texture_scale = 2.5
+
+[node name="LightMask" type="PointLight2D" parent="."]
+light_mask = 2
+blend_mode = 2
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_783fg")
+texture_scale = 2.0
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_lb5la")
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_xgmlc")]
+collision_layer = 32
+collision_mask = 32
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_j0ehy")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_16o1r")]
+
+[node name="VelocityComponent" parent="." instance=ExtResource("9_cb3a1")]
+max_speed = 150
+acceleration = 25.0
+
+[node name="WeightComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("10_d67op")]
+velocity_component = NodePath("../VelocityComponent")
+max_weight = 100.0
+curve = SubResource("Curve_w7ko0")

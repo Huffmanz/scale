@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemDataWeapon" load_steps=9 format=3 uid="uid://cjjege2e1hw4d"]
+
+[ext_resource type="Script" path="res://item/item_data_weapon.gd" id="1_gvx4c"]
+[ext_resource type="Resource" uid="uid://dfqtmvavrtrgy" path="res://item/weapons/ammo.tres" id="1_qq0xi"]
+[ext_resource type="Resource" uid="uid://blegf3riguykl" path="res://item/weapons/pistol_inventory.tres" id="2_s6n0c"]
+[ext_resource type="Texture2D" uid="uid://c4r1mj5xuayis" path="res://assets/Free-TDS-Game-UI-Pixel-Art/HUD/CHARACTER HUD/Ammo Icon.png" id="3_33r84"]
+[ext_resource type="PackedScene" uid="uid://doo5xq31tav5t" path="res://item/weapons/handgun.tscn" id="3_cslv0"]
+[ext_resource type="Texture2D" uid="uid://l055tp62d6ph" path="res://assets/Cursors/Outline/crosshair151.png" id="4_djivt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hh421"]
+load_path = "res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-821477722b2c771c1bacd163b17d0678.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrco"]
+atlas = SubResource("CompressedTexture2D_hh421")
+region = Rect2(48, 120, 12, 8)
+
+[resource]
+script = ExtResource("1_gvx4c")
+camera_shake_strength = 2.0
+seconds_between_shots = 0.25
+damage = 1
+fmj = false
+cross_hair = ExtResource("4_djivt")
+ammo_placeholder = ExtResource("3_33r84")
+ammo_inventory = ExtResource("2_s6n0c")
+ammo = ExtResource("1_qq0xi")
+shots = 1
+load_individual = false
+shot_spread = 0.0
+scene = ExtResource("3_cslv0")
+name = "Pistol"
+description = "Make small boom boom"
+stackable = false
+texture = SubResource("AtlasTexture_igrco")
+weight = 12.0
+max_stack_size = 99

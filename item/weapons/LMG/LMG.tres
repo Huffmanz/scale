@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemDataWeapon" load_steps=10 format=3 uid="uid://bdt72fttegumd"]
+
+[ext_resource type="Resource" uid="uid://dfqtmvavrtrgy" path="res://item/weapons/ammo.tres" id="1_k52x7"]
+[ext_resource type="Texture2D" uid="uid://csnge57t5proa" path="res://assets/Free-TDS-Game-UI-Pixel-Art/ammo.png" id="1_rynds"]
+[ext_resource type="Script" path="res://inventory/inventory_data_ammo.gd" id="2_1xlkb"]
+[ext_resource type="Script" path="res://item/item_data_weapon.gd" id="3_b56ty"]
+[ext_resource type="Texture2D" uid="uid://dassiiq4i8ab2" path="res://assets/Cursors/Outline/crosshair195.png" id="4_khhvt"]
+[ext_resource type="PackedScene" uid="uid://decspyei3nxm" path="res://item/weapons/assault_rifle.tscn" id="5_6fox0"]
+
+[sub_resource type="Resource" id="Resource_khwba"]
+script = ExtResource("2_1xlkb")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null])
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cn3gl"]
+load_path = "res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-821477722b2c771c1bacd163b17d0678.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxpho"]
+atlas = SubResource("CompressedTexture2D_cn3gl")
+region = Rect2(288, 120, 48, 16)
+
+[resource]
+script = ExtResource("3_b56ty")
+camera_shake_strength = 3.0
+seconds_between_shots = 0.1
+damage = 1
+fmj = false
+cross_hair = ExtResource("4_khhvt")
+ammo_placeholder = ExtResource("1_rynds")
+ammo_inventory = SubResource("Resource_khwba")
+ammo = ExtResource("1_k52x7")
+shots = 1
+load_individual = false
+shot_spread = 0.0
+scene = ExtResource("5_6fox0")
+name = "LMG"
+description = "Swiss Cheese Maker"
+stackable = false
+texture = SubResource("AtlasTexture_uxpho")
+weight = 50.0
+max_stack_size = 99

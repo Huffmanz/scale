@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://cq0pnvj31f43"]
+
+[ext_resource type="Script" path="res://item/weapons/weapon.gd" id="1_4iopw"]
+[ext_resource type="Texture2D" uid="uid://brt2hmnghx28n" path="res://assets/player/hand.png" id="2_gyxm0"]
+[ext_resource type="Texture2D" uid="uid://cs31lwprjmfde" path="res://assets/TheUltimateWeaponsPack/tile_0005.png" id="4_afbt7"]
+[ext_resource type="Script" path="res://components/random_audio_stream_player.gd" id="4_hbrcq"]
+[ext_resource type="Texture2D" uid="uid://k8oopap8hvqh" path="res://assets/environment/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="4_jneew"]
+[ext_resource type="AudioStream" uid="uid://badswuka4xryb" path="res://assets/audio/Snake's Authentic Gun Sounds/Isolated/7.62x39/MP3/762x39 Single Isolated MP3.mp3" id="5_jfq1h"]
+[ext_resource type="AudioStream" uid="uid://bolaiawn3soxg" path="res://assets/audio/WeaponNoises/Dry_fire.mp3" id="7_kuibn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_756ss"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_41uh6"]
+light_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ldxun"]
+polygon = PackedVector2Array(241, 133, -242, 133, -241, -135, 240, -134, -27, 1.99999)
+
+[node name="Weapon" type="Node2D"]
+z_index = 3
+y_sort_enabled = true
+script = ExtResource("1_4iopw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_756ss")
+
+[node name="Hand" type="Sprite2D" parent="Sprite2D"]
+material = SubResource("CanvasItemMaterial_41uh6")
+position = Vector2(6, -1)
+texture = ExtResource("2_gyxm0")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(7.2, -1.6)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Sprite2D/Marker2D"]
+visible = false
+modulate = Color(2, 2, 1, 1)
+position = Vector2(1.35206, -0.0635468)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_afbt7")
+
+[node name="Shell" type="Marker2D" parent="Sprite2D/Marker2D"]
+modulate = Color(3.84, 1, 1, 1)
+
+[node name="Shadows" type="PointLight2D" parent="Sprite2D/Marker2D"]
+z_index = 1
+position = Vector2(0.800003, 0.600006)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("4_jneew")
+offset = Vector2(50, 0)
+texture_scale = 0.75
+
+[node name="LightMask" type="PointLight2D" parent="Sprite2D/Marker2D"]
+light_mask = 2
+position = Vector2(-9.2, 0.600006)
+blend_mode = 2
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("4_jneew")
+texture_scale = 0.75
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D/Marker2D"]
+position = Vector2(19.8, -0.399994)
+occluder = SubResource("OccluderPolygon2D_ldxun")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShotAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("4_hbrcq")
+streams = Array[AudioStream]([ExtResource("5_jfq1h")])
+
+[node name="DryFirePlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -0.2
+script = ExtResource("4_hbrcq")
+streams = Array[AudioStream]([ExtResource("7_kuibn")])

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bf4385wqxxhhk"]
+
+[node name="Tooltip" type="PopupPanel"]
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Item Name
+"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Description
+"

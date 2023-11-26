@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDataAmmo" load_steps=4 format=3 uid="uid://dfqtmvavrtrgy"]
+
+[ext_resource type="Script" path="res://item/item_data_ammo.gd" id="1_2p45b"]
+[ext_resource type="Texture2D" uid="uid://bfqpapxagqkes" path="res://assets/Free-TDS-Game-UI-Pixel-Art/ammo_atlas.png" id="2_ogkvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc5rl"]
+atlas = ExtResource("2_ogkvg")
+region = Rect2(8, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_2p45b")
+name = "Ammo"
+description = "Make things go dead"
+stackable = true
+texture = SubResource("AtlasTexture_bc5rl")
+weight = 0.25
+max_stack_size = 20

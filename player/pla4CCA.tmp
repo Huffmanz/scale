@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bks6pfphc23dx"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_23ulv"]
+[ext_resource type="Texture2D" uid="uid://c0lnd8vwa1dbn" path="res://assets/player/player.png" id="2_brjlr"]
+[ext_resource type="Resource" uid="uid://bqv7ufqolls0i" path="res://test_inv.tres" id="2_l2mes"]
+[ext_resource type="PackedScene" uid="uid://d07j55uymbv67" path="res://components/health_component.tscn" id="3_16o1r"]
+[ext_resource type="Texture2D" uid="uid://k8oopap8hvqh" path="res://assets/environment/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="3_783fg"]
+[ext_resource type="PackedScene" uid="uid://coatywfr1koxw" path="res://components/hurtbox.tscn" id="3_xgmlc"]
+[ext_resource type="PackedScene" uid="uid://cq0pnvj31f43" path="res://item/weapons/weapon.tscn" id="7_ipuo7"]
+[ext_resource type="Resource" uid="uid://cjjege2e1hw4d" path="res://item/weapons/pistol.tres" id="8_1ib7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7t54"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ehy"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+script = ExtResource("1_23ulv")
+inventory_data = ExtResource("2_l2mes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x7t54")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_brjlr")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_16o1r")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_xgmlc")]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_j0ehy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Shadows" type="PointLight2D" parent="."]
+z_index = 1
+shadow_enabled = true
+texture = ExtResource("3_783fg")
+
+[node name="LightMask" type="PointLight2D" parent="."]
+light_mask = 2
+blend_mode = 2
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_783fg")
+texture_scale = 50.0
+
+[node name="InteractRay" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+collision_mask = 16
+
+[node name="Weapon" parent="." instance=ExtResource("7_ipuo7")]
+weapon_data = ExtResource("8_1ib7o")

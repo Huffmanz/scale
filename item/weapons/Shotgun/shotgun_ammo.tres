@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDataAmmo" load_steps=4 format=3 uid="uid://d2c83tsmrt7l"]
+
+[ext_resource type="Script" path="res://item/item_data_ammo.gd" id="1_mc8e7"]
+[ext_resource type="Texture2D" uid="uid://bfqpapxagqkes" path="res://assets/Free-TDS-Game-UI-Pixel-Art/ammo_atlas.png" id="2_vu3h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh0ne"]
+atlas = ExtResource("2_vu3h3")
+region = Rect2(0, 0, 8, 8)
+
+[resource]
+script = ExtResource("1_mc8e7")
+name = "Shotgun Shells"
+description = "Shotgun Shells"
+stackable = true
+texture = SubResource("AtlasTexture_lh0ne")
+weight = 0.5
+max_stack_size = 2

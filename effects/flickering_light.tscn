@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2r0ojw8wg1df"]
+
+[ext_resource type="Texture2D" uid="uid://k8oopap8hvqh" path="res://assets/environment/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="1_sq0km"]
+[ext_resource type="Script" path="res://effects/flickering_light.gd" id="2_r3545"]
+
+[node name="FlickeringLight" type="PointLight2D"]
+texture = ExtResource("1_sq0km")
+script = ExtResource("2_r3545")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true

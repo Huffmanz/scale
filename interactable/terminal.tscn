@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4gtim8t06t7"]
+
+[ext_resource type="Script" path="res://interactable/terminal.gd" id="1_lfle5"]
+[ext_resource type="PackedScene" uid="uid://njn04e8lrr3h" path="res://interactable/interactable_component.tscn" id="2_xsef4"]
+[ext_resource type="Script" path="res://components/random_audio_stream_player.gd" id="3_oec7j"]
+[ext_resource type="AudioStream" uid="uid://vhysw2uoqsbb" path="res://assets/audio/keyboard_for_terminal.mp3" id="4_du3wt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_namkk"]
+load_path = "res://.godot/imported/PixelOfficeAssets.png-baeed859270d54724406eb435c2bc4a2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_778kt"]
+atlas = SubResource("CompressedTexture2D_namkk")
+region = Rect2(231, 105, 19, 21)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d0gps"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqdd7"]
+size = Vector2(27, 33)
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_lfle5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_778kt")
+
+[node name="InteractableComponent" parent="." node_paths=PackedStringArray("sprite_2d") instance=ExtResource("2_xsef4")]
+collision_mask = 2
+sprite_2d = NodePath("../Sprite2D")
+
+[node name="Label" parent="InteractableComponent" index="1"]
+z_index = 100
+material = SubResource("CanvasItemMaterial_d0gps")
+offset_left = -25.0
+offset_top = -21.0
+offset_right = 31.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-11, 4)
+shape = SubResource("RectangleShape2D_bqdd7")
+
+[node name="RandomStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
+script = ExtResource("3_oec7j")
+streams = Array[AudioStream]([ExtResource("4_du3wt")])
+
+[editable path="InteractableComponent"]

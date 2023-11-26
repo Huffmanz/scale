@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=4 format=3 uid="uid://bocwa2pihhvr7"]
+
+[ext_resource type="Script" path="res://item/item_data_consumable.gd" id="1_lqa5i"]
+[ext_resource type="Texture2D" uid="uid://ds0y7h0bbmaeb" path="res://assets/ModernInteriors/18_Jail_32x32.png" id="2_563mm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cstxb"]
+atlas = ExtResource("2_563mm")
+region = Rect2(450, 145, 28, 27)
+
+[resource]
+script = ExtResource("1_lqa5i")
+heal_value = 3
+name = "Health Pack"
+description = "Heal"
+stackable = false
+texture = SubResource("AtlasTexture_cstxb")
+weight = 15.0
+max_stack_size = 99

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4gtim8t06t7"]
+
+[ext_resource type="Texture2D" uid="uid://dfy2u25s2cirb" path="res://assets/PixelOffice/PixelOfficeAssets.tres" id="1_a3jk2"]
+[ext_resource type="Script" path="res://interactable/terminal.gd" id="1_lfle5"]
+[ext_resource type="PackedScene" uid="uid://njn04e8lrr3h" path="res://interactable/interactable_component.tscn" id="2_xsef4"]
+[ext_resource type="PackedScene" uid="uid://xdk0c82v32er" path="res://components/outline_component.tscn" id="4_xbgsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqdd7"]
+size = Vector2(8, 12)
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_lfle5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a3jk2")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_xsef4")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-11, 4)
+shape = SubResource("RectangleShape2D_bqdd7")
+
+[node name="OutlineComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("4_xbgsb")]
+sprite = NodePath("../Sprite2D")

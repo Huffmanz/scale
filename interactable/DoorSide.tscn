@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6pojjjyhctol"]
+
+[ext_resource type="Script" path="res://interactable/door.gd" id="1_p11e2"]
+[ext_resource type="Texture2D" uid="uid://bdsiboeamvet8" path="res://assets/tiles_laboratory_LandOfPixels/32px/tilesStuff.png" id="2_pavpg"]
+[ext_resource type="PackedScene" uid="uid://dmbvh25kb2w24" path="res://components/random_audio_stream_player.tscn" id="3_1gyd2"]
+[ext_resource type="AudioStream" uid="uid://cqums1482ehnt" path="res://assets/audio/zombie_sounds/doors_opening.mp3" id="4_gq3fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbi84"]
+size = Vector2(24, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2rck"]
+size = Vector2(19.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq5dl"]
+size = Vector2(23.375, 76.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7o5v"]
+atlas = ExtResource("2_pavpg")
+region = Rect2(226, 316, 32, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ykx"]
+atlas = ExtResource("2_pavpg")
+region = Rect2(226, 316, 32, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7uwf"]
+atlas = ExtResource("2_pavpg")
+region = Rect2(258, 316, 32, 178)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f308j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7o5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ykx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7uwf")
+}],
+"loop": false,
+"name": &"open",
+"speed": 2.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d8rqn"]
+polygon = PackedVector2Array(10.2659, 3161.42, 8.55494, -3236.69, -10.2659, -3236.69, -10.2659, 3161.42)
+
+[node name="DoorSide" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_p11e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_nbi84")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 77)
+shape = SubResource("RectangleShape2D_r2rck")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -46.125)
+shape = SubResource("RectangleShape2D_mq5dl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f308j")
+autoplay = "default"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(1.16892, -0.0265704)
+occluder = SubResource("OccluderPolygon2D_d8rqn")
+
+[node name="RandomAudioStreamPlayer" parent="." instance=ExtResource("3_1gyd2")]
+streams = Array[AudioStream]([ExtResource("4_gq3fw")])

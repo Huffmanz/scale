@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemDataWeapon" load_steps=10 format=3 uid="uid://ut1vy85quh7n"]
+
+[ext_resource type="Script" path="res://item/item_data_weapon.gd" id="1_16637"]
+[ext_resource type="Resource" uid="uid://dfqtmvavrtrgy" path="res://item/weapons/ammo.tres" id="1_sbhqo"]
+[ext_resource type="Script" path="res://inventory/inventory_data_ammo.gd" id="2_0btbd"]
+[ext_resource type="Texture2D" uid="uid://csnge57t5proa" path="res://assets/Free-TDS-Game-UI-Pixel-Art/ammo.png" id="3_1iivx"]
+[ext_resource type="PackedScene" uid="uid://decspyei3nxm" path="res://item/weapons/assault_rifle.tscn" id="3_suqk1"]
+[ext_resource type="Texture2D" uid="uid://6fa0sx5bgup" path="res://assets/Cursors/Outline/crosshair007.png" id="4_n7wtm"]
+
+[sub_resource type="Resource" id="Resource_v82qr"]
+script = ExtResource("2_0btbd")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null])
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nv6f6"]
+load_path = "res://.godot/imported/TheUltimateWeaponsPack_Sheet.png-821477722b2c771c1bacd163b17d0678.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk4hu"]
+atlas = SubResource("CompressedTexture2D_nv6f6")
+region = Rect2(192, 192, 32, 9)
+
+[resource]
+script = ExtResource("1_16637")
+camera_shake_strength = 2.0
+seconds_between_shots = 0.25
+damange = 1
+fmj = false
+cross_hair = ExtResource("4_n7wtm")
+ammo_placeholder = ExtResource("3_1iivx")
+ammo_inventory = SubResource("Resource_v82qr")
+ammo = ExtResource("1_sbhqo")
+shots = 1
+load_individual = false
+shot_spread = 0.0
+scene = ExtResource("3_suqk1")
+name = "Assault Rifle"
+description = "For assaulting not self-defense"
+stackable = false
+texture = SubResource("AtlasTexture_dk4hu")
+weight = 10.0
+max_stack_size = 1

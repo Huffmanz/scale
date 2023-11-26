@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy1qd23ng35d8"]
+
+[ext_resource type="Script" path="res://interactable/chest.gd" id="1_8rp1b"]
+[ext_resource type="Texture2D" uid="uid://bewtvbr0p2eic" path="res://assets/Mini Interior Asset Pack/Objects/Misc/Yellow Box_With Clothes.png" id="2_88xxg"]
+[ext_resource type="PackedScene" uid="uid://njn04e8lrr3h" path="res://interactable/interactable_component.tscn" id="3_baepm"]
+[ext_resource type="PackedScene" uid="uid://dq0ott6qg7oy4" path="res://components/item_spawner_component.tscn" id="4_80fqc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pjwym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycceo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o4ck"]
+size = Vector2(35, 33)
+
+[node name="Chest" type="StaticBody2D" groups=["external_inventory"]]
+collision_mask = 0
+script = ExtResource("1_8rp1b")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+visible = false
+vertices = PackedVector2Array(-10, -12, 10, -12, 10, 11, -10, 11)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_pjwym")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_88xxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ycceo")
+
+[node name="ItemSpawnerComponent" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("4_80fqc")]
+position = Vector2(0, -15)
+marker = NodePath("../SpawnPoint")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_baepm")]
+position = Vector2(0, -17)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_7o4ck")

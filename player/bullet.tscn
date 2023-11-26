@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8b8lcpwo67hd"]
+
+[ext_resource type="Script" path="res://player/bullet.gd" id="1_o3qeh"]
+[ext_resource type="PackedScene" uid="uid://dralqiojqwq3p" path="res://components/hitbox.tscn" id="2_pijp0"]
+[ext_resource type="Texture2D" uid="uid://dtns2c5vitj67" path="res://assets/Apocalypse Character Pack/Player/Bullet.png" id="3_xg37w"]
+[ext_resource type="PackedScene" uid="uid://q716erjewb3i" path="res://components/velocity_component.tscn" id="4_8xlfr"]
+[ext_resource type="PackedScene" uid="uid://dcriplkisprk1" path="res://components/trail_component.tscn" id="5_dix0x"]
+[ext_resource type="Texture2D" uid="uid://k8oopap8hvqh" path="res://assets/environment/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="6_snp5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qhch"]
+size = Vector2(8, 4)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mjhh6"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bcar"]
+size = Vector2(8, 4)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fcshh"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_pq8gu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_e6sxo"]
+colors = PackedColorArray(0.988281, 0.808594, 0.441406, 1, 0.996078, 0.870588, 0.262745, 0.286275)
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_o3qeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1qhch")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("4_8xlfr")]
+max_speed = 500
+acceleration = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_mjhh6")
+scale = Vector2(2, 2)
+texture = ExtResource("3_xg37w")
+region_enabled = true
+region_rect = Rect2(13, 111, 5, 3)
+
+[node name="Hitbox" parent="." instance=ExtResource("2_pijp0")]
+collision_layer = 8
+collision_mask = 9
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_1bcar")
+
+[node name="TrailComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_dix0x")]
+material = SubResource("CanvasItemMaterial_fcshh")
+width = 3.0
+width_curve = SubResource("Curve_pq8gu")
+default_color = Color(0.988235, 0.807843, 0.443137, 1)
+gradient = SubResource("Gradient_e6sxo")
+target = NodePath("..")
+trailLength = 10
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-4, 0)
+energy = 0.5
+texture = ExtResource("6_snp5q")
+offset = Vector2(5, 0)
+texture_scale = 0.05

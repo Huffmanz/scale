@@ -1,0 +1,73 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://b7mucilgoxfdw"]
+
+[ext_resource type="Texture2D" uid="uid://bocfwqgvfec2u" path="res://assets/Free-TDS-Game-UI-Pixel-Art/Inventory and Stats/Inventory Cell.png" id="1_v12x3"]
+[ext_resource type="Texture2D" uid="uid://c5yvokuoqch86" path="res://assets/Free-TDS-Game-UI-Pixel-Art/Main menu/Button BG shadow.png" id="1_w2hbn"]
+[ext_resource type="Texture2D" uid="uid://cospdvu3ys86t" path="res://assets/Free-TDS-Game-UI-Pixel-Art/Settings/Bar BG.png" id="2_2jcrn"]
+[ext_resource type="Texture2D" uid="uid://scqpsibj134j" path="res://assets/Free-TDS-Game-UI-Pixel-Art/Settings/Bar.png" id="3_bo3pv"]
+[ext_resource type="FontFile" uid="uid://cx71ve74y5ig0" path="res://assets/Rockboxcond12.ttf" id="5_ko06r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jmqa8"]
+load_path = "res://.godot/imported/Button BG.png-509421d348cbfc8296397d368898f36f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cya24"]
+texture = SubResource("CompressedTexture2D_jmqa8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnxwd"]
+texture = SubResource("CompressedTexture2D_jmqa8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htcnk"]
+texture = ExtResource("1_w2hbn")
+texture_margin_left = 7.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5nnm"]
+texture = SubResource("CompressedTexture2D_jmqa8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_40ep8"]
+texture = ExtResource("1_v12x3")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grj0q"]
+texture = ExtResource("2_2jcrn")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5li4"]
+texture = ExtResource("3_bo3pv")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[resource]
+default_font = ExtResource("5_ko06r")
+Button/styles/focus = SubResource("StyleBoxTexture_cya24")
+Button/styles/hover = SubResource("StyleBoxTexture_wnxwd")
+Button/styles/normal = SubResource("StyleBoxTexture_htcnk")
+Button/styles/pressed = SubResource("StyleBoxTexture_k5nnm")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_40ep8")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_grj0q")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_b5li4")

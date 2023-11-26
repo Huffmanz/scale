@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InventoryDataAmmo" load_steps=2 format=3 uid="uid://blegf3riguykl"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data_ammo.gd" id="1_p5bqr"]
+
+[resource]
+script = ExtResource("1_p5bqr")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null])

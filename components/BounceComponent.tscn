@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg2aakg1urfxl"]
+
+[ext_resource type="Script" path="res://components/BounceComponent.gd" id="1_ctuc1"]
+
+[node name="BounceComponent" type="Node"]
+script = ExtResource("1_ctuc1")

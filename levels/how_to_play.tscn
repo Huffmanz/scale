@@ -1,0 +1,272 @@
+[gd_scene load_steps=16 format=3 uid="uid://dh4dnuls47s5m"]
+
+[ext_resource type="Script" path="res://levels/how_to_play.gd" id="1_5gnnh"]
+[ext_resource type="Theme" uid="uid://b7mucilgoxfdw" path="res://theme.tres" id="2_kxigv"]
+[ext_resource type="PackedScene" uid="uid://3c64dvk5axmi" path="res://UI/sound_button.tscn" id="3_ondti"]
+[ext_resource type="Texture2D" uid="uid://dha8m8urti45i" path="res://assets/UI/Tiles/tile_0086.png" id="3_pm3gy"]
+[ext_resource type="Texture2D" uid="uid://c8jypvn1dqjxg" path="res://assets/UI/Tiles/tile_0120.png" id="4_dqerw"]
+[ext_resource type="Texture2D" uid="uid://rrbafooab0eg" path="res://assets/UI/Tiles/tile_0121.png" id="5_o8hpc"]
+[ext_resource type="Texture2D" uid="uid://d4j700pj1mwba" path="res://assets/UI/Tiles/tile_0122.png" id="6_o0hq8"]
+[ext_resource type="Texture2D" uid="uid://ctrvyocit84q4" path="res://assets/UI/Tiles/tile_0077.png" id="7_t01b7"]
+[ext_resource type="Texture2D" uid="uid://dwtvtu4lgqen3" path="res://assets/UI/Tiles/tile_0087.png" id="8_3w0ml"]
+[ext_resource type="Texture2D" uid="uid://x457ce8ygdt0" path="res://assets/UI/Tiles/tile_0189.png" id="9_ctp7u"]
+[ext_resource type="Texture2D" uid="uid://dun02vnxjeu5x" path="res://assets/UI/Tiles/tile_0078.png" id="10_4e5ib"]
+
+[sub_resource type="Animation" id="Animation_xdith"]
+resource_name = "in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n2w38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.372549)]
+}
+
+[sub_resource type="Animation" id="Animation_vmff5"]
+resource_name = "out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dlxbo"]
+_data = {
+"RESET": SubResource("Animation_n2w38"),
+"in": SubResource("Animation_xdith"),
+"out": SubResource("Animation_vmff5")
+}
+
+[node name="HowToPlay" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_5gnnh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(320, 180)
+color = Color(0, 0, 0, 0.372549)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kxigv")
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_pm3gy")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_dqerw")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_o8hpc")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_o0hq8")
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("7_t01b7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Shoot
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("8_3w0ml")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Interact
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("9_ctp7u")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Open Inventory
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "UI
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("7_t01b7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Pickup/Drop Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("10_4e5ib")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Use Item / Drop Single"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" parent="ColorRect/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_ondti")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "in"
+libraries = {
+"": SubResource("AnimationLibrary_dlxbo")
+}
