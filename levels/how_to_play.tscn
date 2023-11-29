@@ -12,22 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://x457ce8ygdt0" path="res://assets/UI/Tiles/tile_0189.png" id="9_ctp7u"]
 [ext_resource type="Texture2D" uid="uid://dun02vnxjeu5x" path="res://assets/UI/Tiles/tile_0078.png" id="10_4e5ib"]
 
-[sub_resource type="Animation" id="Animation_xdith"]
-resource_name = "in"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_n2w38"]
 length = 0.001
 tracks/0/type = "value"
@@ -53,6 +37,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0.372549)]
+}
+
+[sub_resource type="Animation" id="Animation_xdith"]
+resource_name = "in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vmff5"]
